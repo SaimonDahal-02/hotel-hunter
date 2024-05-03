@@ -13,14 +13,22 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+
+from django.urls import include, path
 from django.contrib import admin
 from hotelhunter import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^search/', views.search, name='search'),
-    url(r'^signin/', views.signin, name='signin'),
-    url(r'^signup/', views.signup, name='signup'),
-    url(r'^signout/', views.signout, name='signout')
+    path("", views.index, name="index"),
+    path("search/", views.search, name="search"),
+    path("signin/", views.signin, name="signin"),
+    path("signout/", views.signout, name="signout"),
+    path("signup/", views.signup, name="signup"),
 ]
+# urlpatterns = [
+#     path(r"^$", views.index, name="index"),
+#     path(r"^search/", views.search, name="search"),
+#     path(r"^signin/", views.signin, name="signin"),
+#     path(r"^signup/", views.signup, name="signup"),
+#     path(r"^signout/", views.signout, name="signout"),
+# ]
